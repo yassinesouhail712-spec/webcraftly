@@ -130,6 +130,23 @@
       .pricing-number strong{font-size:31px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+    /* Readability fixes: no letter-spacing on Arabic (breaks letter joining), real font weights, comfortable small text */
+    html[lang="ar"] *{letter-spacing:0!important}
+    html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{font-weight:700}
+    html[lang="ar"] body{line-height:1.9}
+    body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-text-size-adjust:100%}
+    h1,h2{font-weight:800}
+    .kicker{font-size:13px;text-transform:none}
+    .trustline,.consent,.privacy-note,.field small,.field-help,.step-mini span,.faq-item p,.side-card p,.benefit p,.currency-note{font-size:14px}
+    .navlinks{font-size:15px}
+    label,.field-label{font-size:15px}
+    .choice-face small{font-size:12.5px}
+    input,select,textarea{font-size:16px}
+    .hours-box{display:flex;flex-direction:column;gap:10px}
+    .hours-pair{display:flex;align-items:center;gap:8px}
+    .hours-pair input{flex:1;min-width:0}
+    .hours-pair label{font-size:14px;margin:0}
   </style>
 </head>
 <body>
@@ -299,8 +316,8 @@
                 <small>قد تتطلب بعض الخصائص، مثل الدفع الإلكتروني أو المتجر المتكامل، اتفاقًا ورسومًا إضافية.</small>
               </div>
               <div class="grid-2">
-                <div class="field"><label for="domain">هل لديك اسم نطاق؟</label><select id="domain" name="domain"><option>ليس لدي، وأرغب في الحصول على نصيحة</option><option>لدي اسم نطاق بالفعل</option><option>أرغب في معرفة الأسعار والخيارات</option><option>لا أعرف ما هو اسم النطاق</option></select></div>
-                <div class="field"><label for="content">هل لديك الصور والنصوص؟</label><select id="content" name="content"><option>لدي بعض المحتوى</option><option>كل المحتوى جاهز</option><option>أحتاج إلى مساعدة في إعداد المحتوى</option><option>لم أجهز المحتوى بعد</option></select></div>
+                <div class="field"><label for="domain">هل لديك اسم نطاق؟</label><select id="domain" name="domain"><option value="">لم يُحدَّد بعد</option><option>ليس لدي، وأرغب في الحصول على نصيحة</option><option>لدي اسم نطاق بالفعل</option><option>أرغب في معرفة الأسعار والخيارات</option><option>لا أعرف ما هو اسم النطاق</option></select></div>
+                <div class="field"><label for="content">هل لديك الصور والنصوص؟</label><select id="content" name="content"><option value="">لم يُحدَّد بعد</option><option>لدي بعض المحتوى</option><option>كل المحتوى جاهز</option><option>أحتاج إلى مساعدة في إعداد المحتوى</option><option>لم أجهز المحتوى بعد</option></select></div>
               </div>
             </section>
 
@@ -310,16 +327,16 @@
               <div class="type-specific" data-for="متجر إلكتروني" hidden>
                 <div class="grid-2">
                   <div class="field"><label for="productCount">ما العدد التقريبي للمنتجات؟</label><select id="productCount" name="productCount"><option value="لم يُحدَّد بعد">لم يُحدَّد بعد</option><option>من 1 إلى 20 منتجًا</option><option>من 21 إلى 100 منتج</option><option>أكثر من 100 منتج</option></select></div>
-                  <div class="field"><label for="storePayment">طريقة الدفع المفضلة</label><select id="storePayment" name="storePayment"><option>الدفع عند الاستلام</option><option>تحويل مصرفي</option><option>بطاقة مصرفية / دفع إلكتروني</option><option>تأكيد الطلب عبر واتساب</option><option>لم أقرر بعد</option></select></div>
+                  <div class="field"><label for="storePayment">طريقة الدفع المفضلة</label><select id="storePayment" name="storePayment"><option value="">لم يُحدَّد بعد</option><option>الدفع عند الاستلام</option><option>تحويل مصرفي</option><option>بطاقة مصرفية / دفع إلكتروني</option><option>تأكيد الطلب عبر واتساب</option><option>لم أقرر بعد</option></select></div>
                   <div class="field"><label for="deliveryArea">ما مناطق التوصيل المتاحة؟</label><input id="deliveryArea" name="deliveryArea" placeholder="مثال: بلد واحد أو عدة بلدان أو مناطق خدمة دولية"></div>
                   <div class="field"><label for="storeCategories">فئات المنتجات</label><input id="storeCategories" name="storeCategories" placeholder="مثال: ملابس، أحذية، إكسسوارات"></div>
                 </div>
               </div>
               <div class="type-specific" data-for="مطعم أو مقهى" hidden>
                 <div class="grid-2">
-                  <div class="field"><label for="foodMenu">هل لديك قائمة الطعام والأسعار؟</label><select id="foodMenu" name="foodMenu"><option>نعم، جاهزة</option><option>لدي جزء منها</option><option>أحتاج إلى إعدادها</option></select></div>
-                  <div class="field"><label for="foodOrders">كيف يفضّل العملاء تقديم الطلب؟</label><select id="foodOrders" name="foodOrders"><option>اتصال هاتفي</option><option>واتساب</option><option>طلب عبر الموقع</option><option>حجز طاولة</option><option>عرض القائمة فقط</option></select></div>
-                  <div class="field"><label for="openingHours">ساعات العمل</label><input id="openingHours" name="openingHours" placeholder="مثال: يوميًا من 9 صباحًا إلى 11 مساءً"></div>
+                  <div class="field"><label for="foodMenu">هل لديك قائمة الطعام والأسعار؟</label><select id="foodMenu" name="foodMenu"><option value="">لم يُحدَّد بعد</option><option>نعم، جاهزة</option><option>لدي جزء منها</option><option>أحتاج إلى إعدادها</option></select></div>
+                  <div class="field"><label for="foodOrders">كيف يفضّل العملاء تقديم الطلب؟</label><select id="foodOrders" name="foodOrders"><option value="">لم يُحدَّد بعد</option><option>اتصال هاتفي</option><option>واتساب</option><option>طلب عبر الموقع</option><option>حجز طاولة</option><option>عرض القائمة فقط</option></select></div>
+                  <div class="field"><label for="openingHours">ساعات العمل</label><div class="hours-box"><select id="openingDays" aria-label="أيام العمل"><option>يوميًا</option><option>من الاثنين إلى السبت</option><option>من الاثنين إلى الجمعة</option><option>أيام أخرى (تُذكر في الملاحظات)</option></select><div class="hours-pair"><label for="openingFrom">من</label><input type="time" id="openingFrom" value="09:00"><label for="openingTo">إلى</label><input type="time" id="openingTo" value="20:00"></div><input type="hidden" id="openingHours" name="openingHours"></div></div>
                   <div class="field"><label for="foodAddress">العنوان أو رابط الخريطة</label><input id="foodAddress" name="foodAddress" placeholder="العنوان أو رابط الخريطة"></div>
                 </div>
               </div>
@@ -327,22 +344,22 @@
                 <div class="grid-2">
                   <div class="field"><label for="serviceList">ما الخدمات الرئيسية التي تقدمها؟</label><textarea id="serviceList" name="serviceList" placeholder="اذكر خدماتك الرئيسية"></textarea></div>
                   <div class="field"><label for="companyAudience">من الجمهور المستهدف؟</label><input id="companyAudience" name="companyAudience" placeholder="أفراد، شركات، متاجر..."></div>
-                  <div class="field"><label for="companyProof">هل لديك أعمال سابقة أو شهادات من العملاء؟</label><select id="companyProof" name="companyProof"><option>نعم، لدي صور أو أمثلة</option><option>لدي آراء العملاء</option><option>لا، هذا مشروع جديد</option></select></div>
-                  <div class="field"><label for="quoteRequest">هل تريد نموذجًا لطلب عرض سعر؟</label><select id="quoteRequest" name="quoteRequest"><option>نعم</option><option>لا</option></select></div>
+                  <div class="field"><label for="companyProof">هل لديك أعمال سابقة أو شهادات من العملاء؟</label><select id="companyProof" name="companyProof"><option value="">لم يُحدَّد بعد</option><option>نعم، لدي صور أو أمثلة</option><option>لدي آراء العملاء</option><option>لا، هذا مشروع جديد</option></select></div>
+                  <div class="field"><label for="quoteRequest">هل تريد نموذجًا لطلب عرض سعر؟</label><select id="quoteRequest" name="quoteRequest"><option value="">لم يُحدَّد بعد</option><option>نعم</option><option>لا</option></select></div>
                 </div>
               </div>
               <div class="type-specific" data-for="جمال أو صالون حلاقة" hidden>
                 <div class="grid-2">
                   <div class="field"><label for="beautyServices">الخدمات والأسعار</label><textarea id="beautyServices" name="beautyServices" placeholder="مثال: قص الشعر، صبغه، العناية بالبشرة..."></textarea></div>
-                  <div class="field"><label for="appointmentMethod">طريقة حجز الموعد</label><select id="appointmentMethod" name="appointmentMethod"><option>واتساب</option><option>اتصال هاتفي</option><option>حجز عبر الموقع</option><option>لا أحتاج إلى الحجز</option></select></div>
-                  <div class="field"><label for="beautyHours">ساعات العمل</label><input id="beautyHours" name="beautyHours" placeholder="الأيام والساعات"></div>
+                  <div class="field"><label for="appointmentMethod">طريقة حجز الموعد</label><select id="appointmentMethod" name="appointmentMethod"><option value="">لم يُحدَّد بعد</option><option>واتساب</option><option>اتصال هاتفي</option><option>حجز عبر الموقع</option><option>لا أحتاج إلى الحجز</option></select></div>
+                  <div class="field"><label for="beautyHours">ساعات العمل</label><div class="hours-box"><select id="beautyDays" aria-label="أيام العمل"><option>يوميًا</option><option>من الاثنين إلى السبت</option><option>من الاثنين إلى الجمعة</option><option>أيام أخرى (تُذكر في الملاحظات)</option></select><div class="hours-pair"><label for="beautyFrom">من</label><input type="time" id="beautyFrom" value="09:00"><label for="beautyTo">إلى</label><input type="time" id="beautyTo" value="20:00"></div><input type="hidden" id="beautyHours" name="beautyHours"></div></div>
                   <div class="field"><label for="beautyAddress">العنوان</label><input id="beautyAddress" name="beautyAddress" placeholder="المدينة والمنطقة أو رابط الخريطة"></div>
                 </div>
               </div>
               <div class="type-specific" data-for="عقار أو كراء" hidden>
                 <div class="grid-2">
                   <div class="field"><label for="propertyType">أنواع العقارات</label><input id="propertyType" name="propertyType" placeholder="شقق، منازل، متاجر، مكاتب..."></div>
-                  <div class="field"><label for="propertyAction">ما الإجراء الذي تريد من الزائر اتخاذه؟</label><select id="propertyAction" name="propertyAction"><option>التواصل معي</option><option>طلب معاينة</option><option>البحث عن العقارات وتصفيتها</option><option>الاستفسار عن الإيجار أو الشراء</option></select></div>
+                  <div class="field"><label for="propertyAction">ما الإجراء الذي تريد من الزائر اتخاذه؟</label><select id="propertyAction" name="propertyAction"><option value="">لم يُحدَّد بعد</option><option>التواصل معي</option><option>طلب معاينة</option><option>البحث عن العقارات وتصفيتها</option><option>الاستفسار عن الإيجار أو الشراء</option></select></div>
                   <div class="field"><label for="propertyCount">العدد التقريبي للعقارات</label><input id="propertyCount" name="propertyCount" placeholder="مثلاً: 10"></div>
                   <div class="field"><label for="propertyFilters">معايير البحث المهمة</label><input id="propertyFilters" name="propertyFilters" placeholder="الثمن، المدينة، المساحة، عدد الغرف..."></div>
                 </div>
@@ -350,7 +367,7 @@
               <div class="type-specific" data-for="السياحة أو الإقامة أو الفنادق" hidden>
                 <div class="grid-2">
                   <div class="field"><label for="tourOffers">الخدمات أو العروض</label><textarea id="tourOffers" name="tourOffers" placeholder="إقامة، رحلات، جولات، تجارب..."></textarea></div>
-                  <div class="field"><label for="tourBooking">طريقة الحجز</label><select id="tourBooking" name="tourBooking"><option>واتساب</option><option>اتصال هاتفي</option><option>نموذج حجز عبر الموقع</option><option>منصة حجز خارجية</option></select></div>
+                  <div class="field"><label for="tourBooking">طريقة الحجز</label><select id="tourBooking" name="tourBooking"><option value="">لم يُحدَّد بعد</option><option>واتساب</option><option>اتصال هاتفي</option><option>نموذج حجز عبر الموقع</option><option>منصة حجز خارجية</option></select></div>
                   <div class="field"><label for="tourLanguages">لغات العملاء</label><input id="tourLanguages" name="tourLanguages" placeholder="مثال: العربية الفصحى، الإنجليزية، الفرنسية، الإسبانية"></div>
                   <div class="field"><label for="tourLocation">الموقع أو الوجهة</label><input id="tourLocation" name="tourLocation" placeholder="المدينة والعنوان أو رابط الخريطة"></div>
                 </div>
@@ -358,14 +375,14 @@
               <div class="type-specific" data-for="محفظة معرض أعمال شخصي" hidden>
                 <div class="grid-2">
                   <div class="field"><label for="portfolioProfession">المهنة أو التخصص</label><input id="portfolioProfession" name="portfolioProfession" placeholder="مصمم، مصور، مطور، فنان..."></div>
-                  <div class="field"><label for="portfolioGoal">هدف الموقع</label><select id="portfolioGoal" name="portfolioGoal"><option>عرض الأعمال السابقة</option><option>استقطاب عملاء جدد</option><option>السيرة الذاتية والمهارات</option><option>بيع الأعمال أو الخدمات</option></select></div>
+                  <div class="field"><label for="portfolioGoal">هدف الموقع</label><select id="portfolioGoal" name="portfolioGoal"><option value="">لم يُحدَّد بعد</option><option>عرض الأعمال السابقة</option><option>استقطاب عملاء جدد</option><option>السيرة الذاتية والمهارات</option><option>بيع الأعمال أو الخدمات</option></select></div>
                   <div class="field"><label for="portfolioLinks">روابط الأعمال الحالية</label><input id="portfolioLinks" name="portfolioLinks" placeholder="روابط Behance أو Instagram أو غيرها"></div>
                 </div>
               </div>
               <div class="type-specific" data-for="جمعية أو مشروع اجتماعي" hidden>
                 <div class="grid-2">
                   <div class="field"><label for="associationMission">هدف الجمعية أو المبادرة</label><textarea id="associationMission" name="associationMission" placeholder="ما رسالة الجمعية وأنشطتها؟"></textarea></div>
-                  <div class="field"><label for="associationNeeds">ما الذي تريد من الزوار القيام به؟</label><select id="associationNeeds" name="associationNeeds"><option>التعرّف على الجمعية</option><option>التطوع</option><option>التبرع</option><option>التسجيل في الأنشطة</option><option>جميع ما سبق</option></select></div>
+                  <div class="field"><label for="associationNeeds">ما الذي تريد من الزوار القيام به؟</label><select id="associationNeeds" name="associationNeeds"><option value="">لم يُحدَّد بعد</option><option>التعرّف على الجمعية</option><option>التطوع</option><option>التبرع</option><option>التسجيل في الأنشطة</option><option>جميع ما سبق</option></select></div>
                 </div>
               </div>
               <div class="type-specific" data-for="نوع آخر" hidden>
@@ -373,7 +390,7 @@
               </div>
               <div class="grid-2">
                 <div class="field"><label for="pagesWanted">الصفحات المطلوبة</label><textarea id="pagesWanted" name="pagesWanted" placeholder="مثال: الرئيسية، من نحن، الخدمات، الأسعار، اتصل بنا"></textarea></div>
-                <div class="field"><label for="mainAction">الإجراء الرئيسي المطلوب من الزائر</label><select id="mainAction" name="mainAction"><option>التواصل معي عبر واتساب</option><option>الاتصال بي هاتفيًا</option><option>شراء منتج</option><option>حجز موعد أو خدمة</option><option>طلب معلومات أو عرض سعر</option><option>التعرّف على المشروع فقط</option><option>خيار آخر (يُوضَّح في الملاحظات)</option></select></div>
+                <div class="field"><label for="mainAction">الإجراء الرئيسي المطلوب من الزائر</label><select id="mainAction" name="mainAction"><option value="">لم يُحدَّد بعد</option><option>التواصل معي عبر واتساب</option><option>الاتصال بي هاتفيًا</option><option>شراء منتج</option><option>حجز موعد أو خدمة</option><option>طلب معلومات أو عرض سعر</option><option>التعرّف على المشروع فقط</option><option>خيار آخر (يُوضَّح في الملاحظات)</option></select></div>
               </div>
             </section>
 
@@ -440,7 +457,7 @@
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/212702771861?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%BA%D9%8A%D8%AA%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9." target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب">
+  <a class="wa-float" href="https://wa.me/212724628891?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AD%D8%B5%D9%88%D9%84%20%D8%B9%D9%84%D9%89%20%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A9%20%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D8%A7%D9%84%D9%85%D9%88%D8%A7%D9%82%D8%B9%20%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9." target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.05 3C8.95 3 3.17 8.72 3.17 15.76c0 2.25.6 4.45 1.74 6.4L3 29l7.1-1.85a12.98 12.98 0 0 0 5.95 1.43h.01c7.1 0 12.88-5.72 12.88-12.76 0-3.41-1.34-6.61-3.76-9.02A12.85 12.85 0 0 0 16.05 3zm.01 23.42h-.01a10.8 10.8 0 0 1-5.2-1.33l-.37-.22-4.21 1.1 1.12-4.08-.24-.42a10.58 10.58 0 0 1-1.62-5.7c0-5.85 4.72-10.61 10.53-10.61 2.81 0 5.45 1.1 7.44 3.1a10.5 10.5 0 0 1 3.08 7.48c0 5.85-4.72 10.61-10.52 10.61zm5.78-7.95c-.32-.16-1.88-.93-2.17-1.03-.29-.1-.5-.16-.71.16-.21.32-.82 1.03-1 1.24-.18.21-.37.24-.69.08-.32-.16-1.34-.5-2.56-1.6-.95-.84-1.59-1.88-1.77-2.2-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.61-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.08-1.11 2.62s1.14 3.04 1.3 3.25c.16.21 2.24 3.41 5.43 4.78.76.33 1.35.53 1.81.68.76.24 1.45.21 1.99.13.61-.09 1.88-.77 2.14-1.51.26-.75.26-1.39.18-1.52-.08-.13-.29-.21-.61-.37z"/></svg>
   </a>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -454,16 +471,16 @@
           'لماذا يحتاج مشروعك إلى موقع إلكتروني؟':'Why does your business need a website?','اجعل الوصول إلى مشروعك والتعرّف عليه أسهل':'Help people discover your business','واجهة واضحة تعرّف بخدماتك وتساعد العملاء على اكتشاف مشروعك والتواصل معك من أي مكان.':'A clear online presence that explains your services and makes it easy for customers to contact you.',
           'تصميم مخصص لمشروعك':'Custom design','نختار الألوان والأسلوب والمحتوى بما يتناسب مع طبيعة مشروعك واحتياجات جمهورك.':'Colours, style and content tailored to your business and customers.','متوافق مع جميع الأجهزة':'Mobile-friendly','تجربة استخدام واضحة وسلسة على الهواتف والأجهزة اللوحية والحواسيب.':'A smooth experience on phones, tablets and computers.','تواصل سهل':'Easy contact','يمكن إضافة وسائل التواصل ومعلومات الاتصال المناسبة لعملائك، وفقًا للاتفاق.':'Add WhatsApp and contact details so customers can reach you easily, as agreed.',
           'ابدأ حضورك الرقمي بسعر واضح':'Build your online presence at a clear price','املأ الطلب بالتفاصيل المتاحة، وسنتواصل معك لتأكيد نطاق العمل والسعر النهائي قبل البدء. يتم الاتفاق بشكل منفصل على اسم النطاق والاستضافة والخصائص الإضافية.':'Tell us about your project. We will confirm the scope and final price before work begins. Domain, hosting and extra features are agreed separately.','للشهر · عرض الكراء':'per month · rental plan','اطلب موقعك الإلكتروني':'Request your website','أخبرنا عن فكرتك':'Tell us about your idea','كلما كانت المعلومات أوضح، فهمنا احتياجاتك بصورة أفضل. عند الضغط على الإرسال، ستُفتح رسالة واتساب تتضمن تفاصيل طلبك لمراجعتها قبل إرسالها.':'The more details you provide, the better we can understand your needs. Submitting opens WhatsApp with your request ready to review.',
-          'استمارة طلب الموقع الإلكتروني':'Website request form','الحقول المعلّمة بنجمة (*) إلزامية. يمكنك إضافة أي تفاصيل أخرى.':'Fields marked (*) are required. You can add any extra details you like.','معلومات العميل والمشروع':'About you and your project','الاسم الكامل':'Full name','رقم الهاتف':'Your phone number','اسم المشروع أو النشاط':'Business / project name','المدينة':'City','ما الخدمات أو المنتجات التي تقدمها؟':'What service or product do you offer?','ما نوع الموقع الذي تحتاج إليه؟':'What type of website do you need?','شركة أو خدمات':'Company / Services','تعريف بالنشاط':'Business profile','مطعم أو مقهى':'Restaurant / Café','قائمة ومعلومات':'Menu and information','متجر إلكتروني':'Online store','المنتجات والمبيعات':'Products and sales','جمال أو حلاقة':'Beauty / Barber','Services and appointments':'Services and appointments','عقارات أو تأجير':'Real estate / Rentals','عرض العقارات':'Property listings','سياحة أو فندق':'Tourism / Hotel','Places and bookings':'Places and bookings','معرض أعمال شخصي':'معرض الأعمال','جمعية أو مبادرة':'Association / Initiative','نوع آخر':'Other','لديك فكرة مختلفة؟':'Have a different idea?',
+          'استمارة طلب الموقع الإلكتروني':'Website request form','الحقول المعلّمة بنجمة (*) إلزامية. يمكنك إضافة أي تفاصيل أخرى.':'Fields marked (*) are required. You can add any extra details you like.','معلومات العميل والمشروع':'About you and your project','الاسم الكامل':'Full name','رقم الهاتف':'Your phone number','اسم المشروع أو النشاط':'Business / project name','المدينة':'City','ما الخدمات أو المنتجات التي تقدمها؟':'What service or product do you offer?','ما نوع الموقع الذي تحتاج إليه؟':'What type of website do you need?','شركة أو خدمات':'Company / Services','تعريف بالنشاط':'Business profile','مطعم أو مقهى':'Restaurant / Café','قائمة ومعلومات':'Menu and information','متجر إلكتروني':'Online store','المنتجات والمبيعات':'Products and sales','جمال أو حلاقة':'Beauty / Barber','Services and appointments':'Services and appointments','عقارات أو تأجير':'Real estate / Rentals','عرض العقارات':'Property listings','سياحة أو فندق':'Tourism / Hotel','Places and bookings':'Places and bookings','معرض أعمال شخصي':'Personal portfolio','جمعية أو مبادرة':'Association / Initiative','نوع آخر':'Other','لديك فكرة مختلفة؟':'Have a different idea?',
           'الأسلوب والتصميم':'Style and design','اختر أسلوب التصميم الذي تفضله':'Choose your preferred style','عصري وبسيط':'Modern and simple','منظم وواضح':'Clean and clear','فاخر وأنيق':'Premium and elegant','مظهر راقٍ':'A refined look','تراثي بلمسة عصرية':'Heritage-inspired and contemporary','ألوان وزخارف أنيقة مستوحاة من الهوية التي تختارها':'Elegant colours and patterns inspired by your chosen identity','جريء وملون':'Bold and colourful','الألوان المفضلة':'Preferred colours','لم أحدد بعد':'Not decided yet','أخضر وذهبي':'Green and gold','أسود وذهبي':'Black and gold','أبيض وأزرق':'White and blue','أحمر وأبيض':'Red and white','ألوان دافئة وطبيعية':'Warm, natural colours','ألوان علامتي التجارية':'My brand colours','اقترح ألوانًا مناسبة لمشروعي':'Choose suitable colours for me','لغات الموقع':'Website language','العربية الفصحى':'Arabic','العربية الفصحى والفرنسية':'Arabic and French','العربية الفصحى والإنجليزية':'Arabic and English','الفرنسية':'French','الإنجليزية':'English','العربية الفصحى والفرنسية والإنجليزية':'Arabic, French and English','لغة أخرى (يرجى توضيحها في الملاحظات)':'Other (specify in notes)','رابط موقع أو تصميم تفضله (اختياري)':'Reference website or design (optional)','إذا وجدت موقعًا أو تصميمًا يعجبك، أضف رابطه لمساعدتنا على فهم تفضيلاتك.':'Share a design you like so we can understand your preferences.',
-          'ما الذي تريد تضمينه في الموقع؟':'What would you like on your website?','اختر جميع الخصائص التي تحتاج إليها (يمكنك اختيار أكثر من خيار)':'Select all the features you need','الصفحة الرئيسية':'Home page','من نحن':'About us','الخدمات / المنتجات':'Services / Products','معرض الصور / الأعمال':'Gallery / معرض الأعمال','الأسعار / قائمة الطعام':'Prices / Menu','المحتوى والتجهيزات':'Content and setup','التوقيت والتواصل':'Timeline and contact','ملاحظات إضافية':'Additional notes','الموعد المطلوب':'Desired deadline','أي وقت مناسب':'Any time','طلب جديد':'New request','قبل إرسال الطلب':'Before submitting your request','الأسئلة الشائعة':'Frequently asked questions','هل أحتاج إلى خبرة في إنشاء المواقع؟':'Do I need website-building experience?','لا. اشرح لنا نشاطك والأفكار التي لديك. وإذا لم تكن متأكدًا مما تختاره، اذكر ذلك في الملاحظات وسنساعدك على تحديد احتياجاتك.':'No. Just tell us about your business and ideas. If you are unsure, mention it in the notes and we can discuss it.','كيف يتم إرسال الطلب؟':'How is the request sent?','هل يشمل السعر اسم النطاق والاستضافة؟':'Are domain and hosting included?','جميع الحقوق محفوظة.':'All rights reserved.','ابنِ حضورك الرقمي بخطوات واضحة.':'Build your digital presence one clear step at a time.','تواصل معنا':'Contact us','خدماتنا':'Our services','موقعنا':'Find us','كل شيء واضح':'Everything made clear','الموقع والخريطة':'Location and map','بكل سهولة':'No hassle','الخطة الشهرية':'Monthly plan','درهم / الشهر':'MAD / month','يرجى ملء الحقول الإلزامية المعلّمة بنجمة (*)':'Please complete all required (*) fields.','يرجى إدخال رقم هاتف صحيح.':'Please enter a valid phone number.','اختار ما نوع الموقع الذي تحتاج إليه؟.':'Please choose a website type.','اختر أسلوب التصميم الذي تفضله.':'Please choose a design style.','يرجى الموافقة على إرسال المعلومات عبر واتساب.':'Please agree to send your information through WhatsApp.'
+          'ما الذي تريد تضمينه في الموقع؟':'What would you like on your website?','اختر جميع الخصائص التي تحتاج إليها (يمكنك اختيار أكثر من خيار)':'Select all the features you need','الصفحة الرئيسية':'Home page','من نحن':'About us','الخدمات / المنتجات':'Services / Products','معرض الصور / الأعمال':'Gallery / Portfolio','الأسعار / قائمة الطعام':'Prices / Menu','المحتوى والتجهيزات':'Content and setup','التوقيت والتواصل':'Timeline and contact','ملاحظات إضافية':'Additional notes','الموعد المطلوب':'Desired deadline','أي وقت مناسب':'Any time','طلب جديد':'New request','قبل إرسال الطلب':'Before submitting your request','الأسئلة الشائعة':'Frequently asked questions','هل أحتاج إلى خبرة في إنشاء المواقع؟':'Do I need website-building experience?','لا. اشرح لنا نشاطك والأفكار التي لديك. وإذا لم تكن متأكدًا مما تختاره، اذكر ذلك في الملاحظات وسنساعدك على تحديد احتياجاتك.':'No. Just tell us about your business and ideas. If you are unsure, mention it in the notes and we can discuss it.','كيف يتم إرسال الطلب؟':'How is the request sent?','هل يشمل السعر اسم النطاق والاستضافة؟':'Are domain and hosting included?','جميع الحقوق محفوظة.':'All rights reserved.','ابنِ حضورك الرقمي بخطوات واضحة.':'Build your digital presence one clear step at a time.','تواصل معنا':'Contact us','خدماتنا':'Our services','موقعنا':'Find us','كل شيء واضح':'Everything made clear','الموقع والخريطة':'Location and map','بكل سهولة':'No hassle','الخطة الشهرية':'Monthly plan','درهم / الشهر':'MAD / month','يرجى ملء الحقول الإلزامية المعلّمة بنجمة (*)':'Please complete all required (*) fields.','يرجى إدخال رقم هاتف صحيح.':'Please enter a valid phone number.','اختار ما نوع الموقع الذي تحتاج إليه؟.':'Please choose a website type.','اختر أسلوب التصميم الذي تفضله.':'Please choose a design style.','يرجى الموافقة على إرسال المعلومات عبر واتساب.':'Please agree to send your information through WhatsApp.'
         },
         fr:{
           'الخدمات':'Services','الثمن':'Tarifs','طلب موقع':'Commander un site','الأسئلة الشائعة':'FAQ','موقعك':'Votre site','موقع إلكتروني على قياس مشروعك':'Un site web adapté à votre activité, où que vous soyez',
           'لماذا يحتاج مشروعك إلى موقع إلكتروني؟':'Pourquoi votre entreprise a-t-elle besoin d’un site ?','اجعل الوصول إلى مشروعك والتعرّف عليه أسهل':'Faites découvrir votre activité','واجهة واضحة تعرّف بخدماتك وتساعد العملاء على اكتشاف مشروعك والتواصل معك من أي مكان.':'Une présence en ligne claire qui présente vos services et facilite le contact avec vos clients.',
           'تصميم مخصص لمشروعك':'Design personnalisé','نختار الألوان والأسلوب والمحتوى بما يتناسب مع طبيعة مشروعك واحتياجات جمهورك.':'Des couleurs, un style et un contenu adaptés à votre activité et à vos clients.','متوافق مع جميع الأجهزة':'Adapté au mobile','تجربة استخدام واضحة وسلسة على الهواتف والأجهزة اللوحية والحواسيب.':'Une expérience fluide sur téléphone, tablette et ordinateur.','تواصل سهل':'Contact facile','يمكن إضافة وسائل التواصل ومعلومات الاتصال المناسبة لعملائك، وفقًا للاتفاق.':'Ajout possible de WhatsApp et de vos coordonnées, selon l’accord.',
           'ابدأ حضورك الرقمي بسعر واضح':'Développez votre présence en ligne à un prix clair','املأ الطلب بالتفاصيل المتاحة، وسنتواصل معك لتأكيد نطاق العمل والسعر النهائي قبل البدء. يتم الاتفاق بشكل منفصل على اسم النطاق والاستضافة والخصائص الإضافية.':'Décrivez votre projet. Nous confirmerons le périmètre et le prix final avant de commencer. Le domaine, l’hébergement et les options sont définis séparément.','للشهر · عرض الكراء':'par mois · formule de location','اطلب موقعك الإلكتروني':'Demandez votre site web','أخبرنا عن فكرتك':'Présentez-nous votre idée','كلما كانت المعلومات أوضح، فهمنا احتياجاتك بصورة أفضل. عند الضغط على الإرسال، ستُفتح رسالة واتساب تتضمن تفاصيل طلبك لمراجعتها قبل إرسالها.':'Plus vos informations sont précises, mieux nous comprendrons vos besoins. L’envoi ouvre WhatsApp avec votre demande à vérifier.',
-          'استمارة طلب الموقع الإلكتروني':'Formulaire de demande de site','الحقول المعلّمة بنجمة (*) إلزامية. يمكنك إضافة أي تفاصيل أخرى.':'Les champs marqués (*) sont obligatoires. Vous pouvez ajouter des détails.','معلومات العميل والمشروع':'À propos de vous et du projet','الاسم الكامل':'Nom complet','رقم الهاتف':'Votre numéro de téléphone','اسم المشروع أو النشاط':'Nom du projet / activité','المدينة':'Ville','ما الخدمات أو المنتجات التي تقدمها؟':'Quel service ou produit proposez-vous ?','ما نوع الموقع الذي تحتاج إليه؟':'Quel type de site souhaitez-vous ?','شركة أو خدمات':'Entreprise / Services','تعريف بالنشاط':'Présentation de l’activité','مطعم أو مقهى':'Restaurant / Café','قائمة ومعلومات':'Menu et informations','متجر إلكتروني':'Boutique en ligne','المنتجات والمبيعات':'Produits et vente','جمال أو حلاقة':'Beauté / Coiffure','عقارات أو تأجير':'Immobilier / Location','عرض العقارات':'Annonces immobilières','سياحة أو فندق':'Tourisme / Hôtel','معرض أعمال شخصي':'معرض الأعمال','جمعية أو مبادرة':'Association / Initiative','نوع آخر':'Autre','لديك فكرة مختلفة؟':'Vous avez une autre idée ?',
+          'استمارة طلب الموقع الإلكتروني':'Formulaire de demande de site','الحقول المعلّمة بنجمة (*) إلزامية. يمكنك إضافة أي تفاصيل أخرى.':'Les champs marqués (*) sont obligatoires. Vous pouvez ajouter des détails.','معلومات العميل والمشروع':'À propos de vous et du projet','الاسم الكامل':'Nom complet','رقم الهاتف':'Votre numéro de téléphone','اسم المشروع أو النشاط':'Nom du projet / activité','المدينة':'Ville','ما الخدمات أو المنتجات التي تقدمها؟':'Quel service ou produit proposez-vous ?','ما نوع الموقع الذي تحتاج إليه؟':'Quel type de site souhaitez-vous ?','شركة أو خدمات':'Entreprise / Services','تعريف بالنشاط':'Présentation de l’activité','مطعم أو مقهى':'Restaurant / Café','قائمة ومعلومات':'Menu et informations','متجر إلكتروني':'Boutique en ligne','المنتجات والمبيعات':'Produits et vente','جمال أو حلاقة':'Beauté / Coiffure','عقارات أو تأجير':'Immobilier / Location','عرض العقارات':'Annonces immobilières','سياحة أو فندق':'Tourisme / Hôtel','معرض أعمال شخصي':'Portfolio personnel','جمعية أو مبادرة':'Association / Initiative','نوع آخر':'Autre','لديك فكرة مختلفة؟':'Vous avez une autre idée ?',
           'الأسلوب والتصميم':'Style et design','اختر أسلوب التصميم الذي تفضله':'Choisissez votre style préféré','عصري وبسيط':'Moderne et simple','منظم وواضح':'Épuré et clair','فاخر وأنيق':'Haut de gamme et élégant','مظهر راقٍ':'Une touche raffinée','تراثي بلمسة عصرية':'Inspiré du patrimoine et contemporain','ألوان وزخارف أنيقة مستوحاة من الهوية التي تختارها':'Couleurs et motifs élégants inspirés de l’identité choisie','جريء وملون':'Audacieux et coloré','الألوان المفضلة':'Couleurs préférées','لم أحدد بعد':'Pas encore décidé','أخضر وذهبي':'Vert et or','أسود وذهبي':'Noir et or','أبيض وأزرق':'Blanc et bleu','أحمر وأبيض':'Rouge et blanc','ألوان دافئة وطبيعية':'Couleurs chaudes et naturelles','ألوان علامتي التجارية':'Couleurs de ma marque','اقترح ألوانًا مناسبة لمشروعي':'Choisissez des couleurs adaptées','لغات الموقع':'Langue du site','العربية الفصحى':'Arabe','العربية الفصحى والفرنسية':'Arabe et français','العربية الفصحى والإنجليزية':'Arabe et anglais','الفرنسية':'Français','الإنجليزية':'Anglais','العربية الفصحى والفرنسية والإنجليزية':'Arabe, français et anglais','لغة أخرى (يرجى توضيحها في الملاحظات)':'Autre (précisez dans les notes)','رابط موقع أو تصميم تفضله (اختياري)':'Site ou design de référence (facultatif)','إذا وجدت موقعًا أو تصميمًا يعجبك، أضف رابطه لمساعدتنا على فهم تفضيلاتك.':'Ajoutez un lien vers un design qui vous plaît pour préciser vos préférences.',
           'ما الذي تريد تضمينه في الموقع؟':'Que souhaitez-vous sur votre site ?','اختر جميع الخصائص التي تحتاج إليها (يمكنك اختيار أكثر من خيار)':'Sélectionnez toutes les fonctionnalités souhaitées','الصفحة الرئيسية':'Page d’accueil','من نحن':'À propos','الخدمات / المنتجات':'Services / Produits','معرض الصور / الأعمال':'Galerie / Réalisations','الأسعار / قائمة الطعام':'Tarifs / Menu','المحتوى والتجهيزات':'Contenu et préparation','التوقيت والتواصل':'Délais et contact','ملاحظات إضافية':'Remarques supplémentaires','الموعد المطلوب':'Délai souhaité','أي وقت مناسب':'À tout moment','قبل إرسال الطلب':'Avant d’envoyer votre demande','الأسئلة الشائعة':'Questions fréquentes','هل أحتاج إلى خبرة في إنشاء المواقع؟':'Dois-je m’y connaître en sites web ?','لا. اشرح لنا نشاطك والأفكار التي لديك. وإذا لم تكن متأكدًا مما تختاره، اذكر ذلك في الملاحظات وسنساعدك على تحديد احتياجاتك.':'Non. Présentez simplement votre activité et vos idées. En cas de doute, indiquez-le dans les remarques et nous en discuterons.','كيف يتم إرسال الطلب؟':'Comment la demande est-elle envoyée ?','هل يشمل السعر اسم النطاق والاستضافة؟':'Le domaine et l’hébergement sont-ils inclus ?','جميع الحقوق محفوظة.':'Tous droits réservés.','ابنِ حضورك الرقمي بخطوات واضحة.':'Développez votre présence numérique en toute simplicité.','تواصل معنا':'Contactez-nous','خدماتنا':'Nos services','موقعنا':'Nous trouver','كل شيء واضح':'Tout est clair','الموقع والخريطة':'Adresse et carte','بكل سهولة':'En toute simplicité','الخطة الشهرية':'Offre mensuelle','درهم / الشهر':'MAD / mois','يرجى ملء الحقول الإلزامية المعلّمة بنجمة (*)':'Veuillez remplir les champs obligatoires (*).','يرجى إدخال رقم هاتف صحيح.':'Veuillez saisir un numéro de téléphone valide.','اختار ما نوع الموقع الذي تحتاج إليه؟.':'Veuillez choisir un type de site.','اختر أسلوب التصميم الذي تفضله.':'Veuillez choisir un style.','يرجى الموافقة على إرسال المعلومات عبر واتساب.':'Veuillez autoriser l’envoi des informations via WhatsApp.'
         }
@@ -496,13 +513,48 @@
       translations.fr['مثال: السعودية، مصر، الإمارات، أو عدة دول']='Ex. : Arabie saoudite, Égypte, Émirats arabes unis ou plusieurs pays';
       translations.fr['أنشئ موقعًا إلكترونيًا يناسب مشروعك أينما كان، ابتداءً من 299 درهمًا شهريًا.']='Créez un site adapté à votre activité où que vous soyez, à partir de 299 MAD par mois.';
       Object.keys(formTranslations).forEach(lang=>Object.assign(translations[lang],formTranslations[lang]));
+      translations.en['لم يُحدَّد بعد']='Not specified yet';
+      translations.fr['لم يُحدَّد بعد']='Non précisé';
+      translations.en['من']='From';
+      translations.en['إلى']='To';
+      translations.en['يوميًا']='Every day';
+      translations.en['من الاثنين إلى السبت']='Monday to Saturday';
+      translations.en['من الاثنين إلى الجمعة']='Monday to Friday';
+      translations.en['أيام أخرى (تُذكر في الملاحظات)']='Other days (please specify in the notes)';
+      translations.en['أيام العمل']='Opening days';
+      translations.fr['من']='De';
+      translations.fr['إلى']='À';
+      translations.fr['يوميًا']='Tous les jours';
+      translations.fr['من الاثنين إلى السبت']='Du lundi au samedi';
+      translations.fr['من الاثنين إلى الجمعة']='Du lundi au vendredi';
+      translations.fr['أيام أخرى (تُذكر في الملاحظات)']='Autres jours (à préciser dans les remarques)';
+      translations.fr['أيام العمل']='Jours d’ouverture';
+      translations.en['معرض الأعمال']='Showcase your work';
+      translations.en['القائمة الرئيسية']='Main menu';
+      translations.en['تواصل عبر واتساب']='Contact us on WhatsApp';
+      translations.en['عملة العرض:']='Display currency:';
+      translations.en['مثال توضيحي لشكل موقع إلكتروني']='Illustrative example of a website';
+      translations.en['موقعك - الرئيسية']='Your Website – Home';
+      translations.en['موقعك - هوية رقمية']='Your Website – digital identity';
+      translations.en['نوع الموقع']='Website type';
+      translations.en['السعر الأساسي 299 درهمًا مغربيًا شهريًا. التحويل تقديري ويتغير حسب سعر الصرف؛ يتم تأكيد عملة الدفع عند الاتفاق.']='Base price: MAD 299 per month. The conversion is an estimate and changes with the exchange rate; the payment currency is confirmed when we agree.';
+      translations.fr['معرض الأعمال']='Valorisez vos réalisations';
+      translations.fr['القائمة الرئيسية']='Menu principal';
+      translations.fr['تواصل عبر واتساب']='Nous contacter sur WhatsApp';
+      translations.fr['عملة العرض:']='Devise affichée :';
+      translations.fr['مثال توضيحي لشكل موقع إلكتروني']='Exemple illustratif de site web';
+      translations.fr['موقعك - الرئيسية']='Votre site – Accueil';
+      translations.fr['موقعك - هوية رقمية']='Votre site – identité numérique';
+      translations.fr['نوع الموقع']='Type de site';
+      translations.fr['السعر الأساسي 299 درهمًا مغربيًا شهريًا. التحويل تقديري ويتغير حسب سعر الصرف؛ يتم تأكيد عملة الدفع عند الاتفاق.']='Prix de base : 299 MAD par mois. La conversion est indicative et varie selon le taux de change ; la devise de paiement est confirmée lors de l’accord.';
       const originalText=new WeakMap(), originalAttrs=new WeakMap();
       function translate(lang){
         const dict=translations[lang]||{};
         const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
         const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
         nodes.forEach(node=>{if(!originalText.has(node)) originalText.set(node,node.nodeValue); const base=originalText.get(node); const key=base.trim(); if(dict[key]){const leading=base.match(/^\s*/)[0],trailing=base.match(/\s*$/)[0];node.nodeValue=leading+dict[key]+trailing;}else node.nodeValue=base;});
-        document.querySelectorAll('input[placeholder],textarea[placeholder],input[aria-label],select[aria-label]').forEach(el=>{if(!originalAttrs.has(el))originalAttrs.set(el,{placeholder:el.getAttribute('placeholder'),aria:el.getAttribute('aria-label')});const a=originalAttrs.get(el);el.setAttribute('placeholder',dict[a.placeholder]||a.placeholder||'');if(a.aria)el.setAttribute('aria-label',dict[a.aria]||a.aria);});
+        document.querySelectorAll('[placeholder],[aria-label]').forEach(el=>{if(!originalAttrs.has(el))originalAttrs.set(el,{placeholder:el.getAttribute('placeholder'),aria:el.getAttribute('aria-label')});const a=originalAttrs.get(el);if(a.placeholder!==null)el.setAttribute('placeholder',dict[a.placeholder]||a.placeholder);if(a.aria!==null)el.setAttribute('aria-label',dict[a.aria]||a.aria);});
+        const waFloat=document.querySelector('.wa-float');if(waFloat){const m=lang==='en'?'Hello, I would like information about your website design service.':lang==='fr'?'Bonjour, je souhaiterais des informations sur votre service de création de sites web.':'السلام عليكم، أرغب في الحصول على معلومات عن خدمة تصميم المواقع الإلكترونية.';waFloat.href='https://wa.me/212724628891?text='+encodeURIComponent(m);}
         document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.body.style.fontFamily=lang==='ar'?'"IBM Plex Sans Arabic","Noto Sans Arabic",Tahoma,sans-serif':'Inter,Arial,Helvetica,sans-serif';
         document.querySelectorAll('.accent:after').forEach(()=>{});
         document.title=lang==='en'?'Your Website | A website tailored to your business, wherever you are':lang==='fr'?'Votre site | Un site web adapté à votre activité, où que vous soyez':'موقعك | حلول مواقع إلكترونية لمختلف المشاريع';
@@ -548,6 +600,8 @@
           section.querySelectorAll('input,select,textarea').forEach(control=>{control.disabled=!active;});
         });
       }
+      function syncHours(prefix,target){const d=document.getElementById(prefix+'Days').value,f=document.getElementById(prefix+'From').value,t=document.getElementById(prefix+'To').value;document.getElementById(target).value=(f&&t)?d+'، من '+f+' إلى '+t:d;}
+      [['opening','openingHours'],['beauty','beautyHours']].forEach(([p,t])=>{['Days','From','To'].forEach(x=>document.getElementById(p+x).addEventListener('input',()=>syncHours(p,t)));syncHours(p,t);});
       form.querySelectorAll('input[name="siteType"]').forEach(radio=>radio.addEventListener('change',updateTypeQuestions));
       updateTypeQuestions();
       form.addEventListener('submit', function(event){
@@ -578,6 +632,7 @@
           '👤 *معلومات الزبون*',
           'الاسم: '+val('clientName'),
           'الهاتف: '+val('clientPhone'),
+          'لغة الاستمارة: '+({ar:'العربية',en:'الإنجليزية',fr:'الفرنسية'}[document.getElementById('languageSelect').value]||'العربية'),
           'اسم المشروع: '+val('businessName'),
           'الدولة / الدول المستهدفة: '+(val('country')||'لم تُحدَّد بعد'),
           'المدينة أو المنطقة: '+(val('city')||'لم تُحدَّد بعد'),
@@ -586,7 +641,7 @@
           'نوع الموقع: '+type,
           'النشاط والخدمات أو المنتجات: '+val('businessDesc'),
           'الهدف الرئيسي: '+(val('mainAction')||'لم يُحدَّد بعد'),
-          'الصفحات المطلوبة: '+(val('pagesWanted')||'نقترحو الصفحات المناسبة حسب النشاط'),
+          'الصفحات المطلوبة: '+(val('pagesWanted')||'سنقترح الصفحات المناسبة حسب النشاط'),
           '',
           '🎨 *التصميم والهوية*',
           'الستايل: '+val('designStyle'),
@@ -614,7 +669,7 @@
           'شكراً، المرجو التواصل مع الزبون لتأكيد التفاصيل.'
         ];
         const message=lines.join('\n');
-        const url='https://wa.me/212702771861?text='+encodeURIComponent(message);
+        const url='https://wa.me/212724628891?text='+encodeURIComponent(message);
         window.location.href=url;
       });
     })();
