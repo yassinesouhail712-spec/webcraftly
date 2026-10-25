@@ -9,7 +9,7 @@
   <meta name="color-scheme" content="light">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Reem+Kufi:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{--green:#113a2b;--green-2:#1d5540;--green-3:#dce9df;--gold:#d4a54e;--gold-light:#f4e4bf;--ink:#18241d;--muted:#66736b;--paper:#f7f5ef;--white:#fffefa;--line:#e6e5dd;--shadow:0 18px 50px rgba(19,43,31,.09);--radius:22px}
     *{box-sizing:border-box}
@@ -148,6 +148,71 @@
     .hours-pair input{flex:1;min-width:0}
     .hours-pair label{font-size:14px;margin:0}
   .plan-pair{display:grid;gap:14px}.plan+.plan{border-top:1px solid rgba(255,255,255,.17);padding-top:13px}.pricing-number .plan strong{font-size:36px}.pricing-number strong [data-rent-value]{font-size:inherit;letter-spacing:inherit;color:inherit}.pricing-number strong span.from,.pricing-number strong span.per{font-size:14px;color:#e0e9df;letter-spacing:0;font-weight:700}.price-float .rent-line{margin-top:5px;padding-top:5px;border-top:1px dashed #eadfc7}.price-float .rent-line b{color:var(--green);font-size:14px}@media(max-width:680px){.pricing-number .plan strong{font-size:30px}}
+
+    /* ===== Redesign: emerald + gold, zellige-inspired hero, 4-step wizard ===== */
+    :root{--green:#0f3b2c;--green-2:#1b5a43;--gold:#d9ac55;--paper:#f6f1e6;--white:#fffdf8;--line:#e8e1d0;--shadow:0 22px 50px -24px rgba(15,59,44,.35)}
+    html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] .brand>span,html[lang="ar"] .pricing-number strong{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif}
+    .topbar{background:rgba(246,241,230,.9)}
+    .btn{border-radius:12px;min-height:46px}
+    .hero{background:radial-gradient(60% 80% at 85% 8%,rgba(217,172,85,.18),transparent 60%),linear-gradient(160deg,#0a2a1f,#0f3b2c 60%,#134a37);color:#fff;padding:76px 0 92px}
+    .hero:before{inset:0;width:100%;opacity:.55;mask-image:linear-gradient(to bottom,#000,transparent 88%);-webkit-mask-image:linear-gradient(to bottom,#000,transparent 88%);background-size:80px 80px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d9ac55' stroke-opacity='.2' stroke-width='1.2'%3E%3Crect x='16' y='16' width='48' height='48'/%3E%3Crect x='16' y='16' width='48' height='48' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3C/g%3E%3C/svg%3E")}
+    .hero h1{color:#fff;font-size:clamp(34px,5.2vw,62px);line-height:1.3}
+    .hero h1 .accent{color:inherit;white-space:normal}.hero h1 .accent:after{display:none}
+    .hero-copy{color:#cfe0d3;font-size:18px}
+    .eyebrow{background:rgba(217,172,85,.14);border-color:rgba(217,172,85,.4);color:#f0d8a0}
+    .trustline{color:#d8e6db;font-size:14px}.tick{background:rgba(217,172,85,.22);color:#f0d8a0}
+    .hero .btn-primary{background:var(--gold);color:#10281e;box-shadow:0 14px 30px -10px rgba(217,172,85,.55)}
+    .hero .btn-primary:hover{background:#e6bb69}
+    .hero .btn-outline{border-color:rgba(255,255,255,.35);color:#fff}
+    .browser{box-shadow:0 34px 80px -20px rgba(0,0,0,.5);border:1px solid rgba(217,172,85,.35)}
+    @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+    .hero-grid>div:first-child>*{animation:rise .7s both}
+    .hero-grid>div:first-child>*:nth-child(2){animation-delay:.08s}.hero-grid>div:first-child>*:nth-child(3){animation-delay:.16s}.hero-grid>div:first-child>*:nth-child(4){animation-delay:.24s}.hero-grid>div:first-child>*:nth-child(5){animation-delay:.32s}
+    .showcase{animation:rise .9s .2s both}
+    .kicker{color:#8a6420;font-weight:700}
+    .benefit{border-radius:18px;border-top:3px solid var(--gold);background:var(--white)}
+    .benefit-icon{background:var(--green);color:var(--gold)}
+    .pricing-card{border-radius:30px;background:linear-gradient(135deg,#0a2a1f,#0f3b2c);border:1px solid rgba(217,172,85,.4)}
+    .form-section{background:#efe8d8}
+    .request-form{border-radius:26px;border:1px solid var(--line);border-top:4px solid var(--gold)}
+    .form-intro-icon,.brandmark{background:var(--green);color:var(--gold)}
+    .stepper{margin:0 0 26px}.stepper ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .stepper li{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:700;color:#8b8f84}
+    .stepper li:before{content:"";height:5px;border-radius:9px;background:#e5dfcf;transition:background .3s}
+    .stepper li.done:before{background:var(--gold)}.stepper li.on:before{background:var(--green)}.stepper li.on{color:var(--green)}
+    .step-label{margin:12px 0 0;font-size:14px;color:var(--muted)}
+    .wiz-nav{display:flex;gap:10px;margin-top:22px}.wiz-nav .btn{flex:1;min-height:50px}.wiz-nav .btn[hidden]{display:none}
+    .form-bottom[hidden],.form-block[hidden]{display:none}
+    .choice-face{position:relative;min-height:64px}
+    .choice input:checked+.choice-face:after{content:"✓";position:absolute;top:6px;inset-inline-end:9px;font-size:13px;font-weight:800;color:var(--green)}
+    .check-option{min-height:46px}
+    .field.err input,.field.err select,.field.err textarea{border-color:#b3412f;box-shadow:0 0 0 3px rgba(179,65,47,.12)}
+    .field-error{color:#b3412f;font-size:14px;font-weight:700}
+    .form-block.err .field-error{display:block;margin-top:10px}
+    footer{background:#0a2a1f}
+    .consent{align-items:center;flex-wrap:wrap;gap:12px;font-size:14px;line-height:1.7;cursor:pointer;padding:14px;border:1.5px solid var(--gold);border-radius:12px;background:#fffaf0}
+    .consent input{flex:0 0 26px;width:26px;height:26px;margin:0;cursor:pointer}
+    .consent.err{border-color:#b3412f;background:#fdf1ee}.consent .field-error{flex-basis:100%}
+    @media(max-width:680px){.hero{padding:48px 0 56px}.stepper li span{display:none}.stepper li.on span{display:block}.wiz-nav{flex-direction:column-reverse}}
+
+    .tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+    .tpl{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .2s,border-color .2s}
+    .tpl:hover{box-shadow:var(--shadow)}.tpl.on{border-color:var(--green);box-shadow:0 0 0 3px var(--gold)}
+    .tpl h3{margin:4px 0 0;font-size:17px}.tpl p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+    .tpl-pick{width:100%;margin-top:auto}.tpl.on .tpl-pick{background:var(--green);color:#fff;border-color:var(--green)}
+    .tpl-mock{background:var(--b);border-radius:12px;padding:10px;height:160px;border:1px solid rgba(0,0,0,.06);display:flex;flex-direction:column;gap:8px}
+    .m-bar{height:8px;width:38%;background:var(--a);border-radius:9px;opacity:.75}
+    .m-hero{flex:1;border-radius:10px;background:linear-gradient(135deg,var(--a),color-mix(in srgb,var(--a) 55%,#000));padding:12px;display:flex;flex-direction:column;gap:6px;justify-content:center}
+    .m-hero b{height:7px;background:rgba(255,255,255,.88);border-radius:9px;width:70%}.m-hero b+b{width:45%;opacity:.7}.m-hero span{width:36px;height:12px;border-radius:6px;background:#fff;margin-top:3px}
+    .m-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.m-row u{height:30px;border-radius:8px;background:#fff;border:1px solid rgba(0,0,0,.07)}.m-row u:nth-child(4){display:none}
+    .l2 .m-row{grid-template-columns:repeat(4,1fr)}.l2 .m-row u:nth-child(4){display:block}.l2 .m-row u{height:40px}
+    .l3 .m-hero{flex:.55}.l3 .m-row u{height:52px}
+    .chosen{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#eef5ee;border:1px solid var(--green);border-radius:12px;padding:10px 14px;margin:0 0 14px;font-size:14px}.chosen[hidden]{display:none}
+    .chosen-clear{margin-inline-start:auto;border:0;background:none;color:var(--green);font-weight:800;cursor:pointer;text-decoration:underline;min-height:36px}
+    .more{margin:6px 0 20px;border:1.5px dashed #cdbf9d;border-radius:16px;padding:0 16px;background:#fffdf8}
+    .more>summary{cursor:pointer;list-style:none;padding:12px 0;font-weight:800;color:var(--green);display:flex;justify-content:space-between;align-items:center;min-height:50px}
+    .more>summary::-webkit-details-marker{display:none}.more>summary:after{content:"＋";color:#98742f;font-size:20px}.more[open]>summary:after{content:"−"}
+    .more-hint{margin:-4px 0 14px;color:var(--muted);font-size:14px}.more .num{display:none}.more .form-block:first-of-type{border-top:1px solid #e9e9e1}
   </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18497378930"></script>
@@ -157,6 +222,10 @@
     gtag('js', new Date());
     gtag('config', 'AW-18497378930');
   </script>
+  <meta property="og:type" content="website"><meta property="og:locale" content="ar_MA">
+  <meta property="og:title" content="موقعك | حلول مواقع إلكترونية لمختلف المشاريع">
+  <meta property="og:description" content="شراء موقعك ابتداءً من 500 درهم أو كراء بـ 150 درهمًا شهريًا. اطلب عبر واتساب.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"تصميم مواقع إلكترونية للمشاريع","provider":{"@type":"Organization","name":"موقعك"},"areaServed":"MA","offers":[{"@type":"Offer","price":"500","priceCurrency":"MAD","description":"شراء الموقع ابتداءً من"},{"@type":"Offer","price":"150","priceCurrency":"MAD","description":"كراء شهري"}]}</script>
 </head>
 <body>
   <header class="topbar">
@@ -169,6 +238,7 @@
       <nav class="navlinks" aria-label="القائمة الرئيسية">
         <a href="#services">خدماتنا</a>
         <a href="#price">الثمن</a>
+        <a href="#templates" data-i18n="nav">القوالب</a>
         <a href="#how">كيف يعمل الموقع</a>
         <a href="#faq">الأسئلة الشائعة</a>
       </nav>
@@ -246,6 +316,13 @@
       </div>
     </section>
 
+    <section class="section" id="templates">
+      <div class="wrap">
+        <div class="section-head"><div class="kicker" data-i18n="tplKicker">قوالب جاهزة</div><h2 data-i18n="tplTitle">اختر قالبًا يناسب مشروعك</h2><p data-i18n="tplSub">نماذج توضيحية للتصميم. نخصّص الألوان والنصوص والصور حسب هويتك، ويكفي أن تختار قالبًا ثم نكمل معك عبر واتساب.</p></div>
+        <div class="tpl-grid"><article class="tpl" data-k="1" data-type="مطعم أو مقهى"><div class="tpl-mock " style="--a:#b45309;--b:#fff7ed" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n1">مطعم ومقهى</h3><p data-i18n="d1">قائمة الطعام والحجز والموقع</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article><article class="tpl" data-k="2" data-type="متجر إلكتروني"><div class="tpl-mock l2" style="--a:#7c3aed;--b:#f5f3ff" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n2">متجر إلكتروني</h3><p data-i18n="d2">عرض المنتجات واستقبال الطلبات</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article><article class="tpl" data-k="3" data-type="موقع شركة أو خدمات"><div class="tpl-mock l3" style="--a:#1d4ed8;--b:#eff6ff" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n3">شركة وخدمات</h3><p data-i18n="d3">تعريف بالخدمات وطلب عرض سعر</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article><article class="tpl" data-k="4" data-type="جمال أو صالون حلاقة"><div class="tpl-mock " style="--a:#be185d;--b:#fdf2f8" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n4">صالون وجمال</h3><p data-i18n="d4">الخدمات والأسعار وحجز المواعيد</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article><article class="tpl" data-k="5" data-type="عقار أو كراء"><div class="tpl-mock l3" style="--a:#0f3b2c;--b:#eef4ee" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n5">عقارات</h3><p data-i18n="d5">عرض العقارات والتواصل مع الزوار</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article><article class="tpl" data-k="6" data-type="السياحة أو الإقامة أو الفنادق"><div class="tpl-mock l2" style="--a:#0e7490;--b:#ecfeff" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n6">سياحة وإقامة</h3><p data-i18n="d6">الوجهات والعروض والحجز</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article><article class="tpl" data-k="7" data-type="محفظة معرض أعمال شخصي"><div class="tpl-mock l3" style="--a:#1f2937;--b:#f3f4f6" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n7">معرض أعمال</h3><p data-i18n="d7">أعمالك وسيرتك وتواصل سريع</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article><article class="tpl" data-k="8" data-type="جمعية أو مشروع اجتماعي"><div class="tpl-mock " style="--a:#15803d;--b:#f0fdf4" aria-hidden="true"><i class="m-bar"></i><div class="m-hero"><b></b><b></b><span></span></div><div class="m-row"><u></u><u></u><u></u><u></u></div></div><h3 data-i18n="n8">جمعية ومبادرة</h3><p data-i18n="d8">رسالة الجهة وأنشطتها والتطوع</p><button type="button" class="btn btn-outline tpl-pick" data-i18n="pick">اختر هذا القالب</button></article></div>
+      </div>
+    </section>
+
     <section class="form-section" id="request">
       <div class="wrap">
         <div class="section-head">
@@ -262,11 +339,11 @@
               <div class="grid-2">
                 <div class="field"><label for="clientName">الاسم الكامل <span class="required">*</span></label><input id="clientName" name="clientName" autocomplete="name" placeholder="مثال: أحمد محمد" required></div>
                 <div class="field"><label for="clientPhone">رقم الهاتف <span class="required">*</span></label><input id="clientPhone" name="clientPhone" type="tel" autocomplete="tel" placeholder="مثال: +966 أو +20 أو +971 أو رقمك الدولي" required></div>
-                <div class="field"><label for="businessName">اسم المشروع أو النشاط <span class="required">*</span></label><input id="businessName" name="businessName" placeholder="اسم النشاط أو العلامة التجارية" required></div>
+                <div class="field"><label for="businessName">اسم المشروع أو النشاط</label><input id="businessName" name="businessName" placeholder="اسم النشاط أو العلامة التجارية" required></div>
                 <div class="field"><label for="country">الدولة / الدول المستهدفة</label><input id="country" name="country" placeholder="مثال: السعودية، مصر، الإمارات، أو عدة دول"></div>
                 <div class="field"><label for="city">المدينة أو المنطقة</label><input id="city" name="city" placeholder="مثال: الرياض، القاهرة، دبي، باريس"></div>
               </div>
-              <div class="field"><label for="businessDesc">ما الخدمات أو المنتجات التي تقدمها؟ <span class="required">*</span></label><textarea id="businessDesc" name="businessDesc" placeholder="صف نشاطك التجاري أو المنتجات التي تبيعها أو الخدمات التي تقدمها..." required></textarea></div>
+              <div class="field"><label for="businessDesc">ما الخدمات أو المنتجات التي تقدمها؟</label><textarea id="businessDesc" name="businessDesc" placeholder="صف نشاطك التجاري أو المنتجات التي تبيعها أو الخدمات التي تقدمها..." required></textarea></div>
               <div class="field"><label>العرض المطلوب</label><div class="option-grid cols-2" role="radiogroup" aria-label="العرض المطلوب">
                 <label class="choice"><input type="radio" name="offer" value="شراء الموقع" checked><span class="choice-face"><span class="choice-emoji">🛒</span><span><b>شراء الموقع</b><small>ابتداءً من 500 درهم · دفعة واحدة</small></span></span></label>
                 <label class="choice"><input type="radio" name="offer" value="كراء شهري"><span class="choice-face"><span class="choice-emoji">🗓️</span><span><b>كراء شهري</b><small>150 درهم / الشهر</small></span></span></label>
@@ -274,7 +351,7 @@
             </section>
 
             <section class="form-block">
-              <h3 class="block-title"><span class="num">2</span> ما نوع الموقع الذي تحتاج إليه؟</h3>
+              <h3 class="block-title"><span class="num">2</span> ما نوع الموقع الذي تحتاج إليه؟ <span class="required">*</span></h3>
               <div class="option-grid" role="radiogroup" aria-label="نوع الموقع">
                 <label class="choice"><input type="radio" name="siteType" value="موقع شركة أو خدمات" required><span class="choice-face"><span class="choice-emoji">🏢</span><span><b>شركة أو خدمات</b><small>تعريف بالنشاط</small></span></span></label>
                 <label class="choice"><input type="radio" name="siteType" value="مطعم أو مقهى"><span class="choice-face"><span class="choice-emoji">☕</span><span><b>مطعم أو مقهى</b><small>قائمة ومعلومات</small></span></span></label>
@@ -290,7 +367,7 @@
 
             <section class="form-block">
               <h3 class="block-title"><span class="num">3</span> الأسلوب والتصميم</h3>
-              <div class="field"><span class="field-label">اختر أسلوب التصميم الذي تفضله <span class="required">*</span></span>
+              <div class="field"><span class="field-label">اختر أسلوب التصميم الذي تفضله</span>
                 <div class="option-grid cols-2">
                   <label class="choice"><input type="radio" name="designStyle" value="عصري وبسيط" required><span class="choice-face"><span class="choice-emoji">◈</span><span><b>عصري وبسيط</b><small>منظم وواضح</small></span></span></label>
                   <label class="choice"><input type="radio" name="designStyle" value="فاخر وأنيق"><span class="choice-face"><span class="choice-emoji">✧</span><span><b>فاخر وأنيق</b><small>مظهر راقٍ</small></span></span></label>
@@ -622,12 +699,11 @@
       updateTypeQuestions();
       form.addEventListener('submit', function(event){
         event.preventDefault();
-        const requiredIds=['clientName','clientPhone','businessName','businessDesc'];
+        const requiredIds=['clientName','clientPhone'];
         for(const id of requiredIds){ const el=document.getElementById(id); if(!clean(el.value)){ el.focus(); showToast(validationMessage('required')); return; } }
         if(!validPhone(val('clientPhone'))){ document.getElementById('clientPhone').focus(); showToast(validationMessage('phone')); return; }
         if(!val('siteType')){ const el=form.querySelector('input[name="siteType"]'); el.focus(); showToast(validationMessage('type')); return; }
-        if(!val('designStyle')){ const el=form.querySelector('input[name="designStyle"]'); el.focus(); showToast(validationMessage('style')); return; }
-        if(!document.getElementById('consent').checked){ document.getElementById('consent').focus(); showToast(validationMessage('consent')); return; }
+                if(!document.getElementById('consent').checked){ document.getElementById('consent').focus(); showToast(validationMessage('consent')); return; }
         const features=checked('features');
         const type=val('siteType');
         const typeFields={
@@ -645,23 +721,27 @@
         const lines=[
           '🌐 *طلب تصميم موقع إلكتروني*',
           '━━━━━━━━━━━━━━━━━━',
+          '🧠 *برومبت مختصر للموقع*',
+          (window.getPromptForWhatsApp?window.getPromptForWhatsApp():''),
+          '',
           '👤 *معلومات الزبون*',
           'الاسم: '+val('clientName'),
           'الهاتف: '+val('clientPhone'),
           'لغة الاستمارة: '+({ar:'العربية',en:'الإنجليزية',fr:'الفرنسية'}[document.getElementById('languageSelect').value]||'العربية'),
-          'اسم المشروع: '+val('businessName'),
+          'اسم المشروع: '+(val('businessName')||'لم يُحدَّد بعد'),
           'الدولة / الدول المستهدفة: '+(val('country')||'لم تُحدَّد بعد'),
           'المدينة أو المنطقة: '+(val('city')||'لم تُحدَّد بعد'),
           '',
           '💼 *فكرة المشروع*',
           'نوع الموقع: '+type,
-          'النشاط والخدمات أو المنتجات: '+val('businessDesc'),
+          '🎨 *القالب المختار*: '+(window.getTemplateForWhatsApp&&window.getTemplateForWhatsApp()||'لم يختر قالبًا'),
+          'النشاط والخدمات أو المنتجات: '+(val('businessDesc')||'لم يُحدَّد بعد'),
           'الهدف الرئيسي: '+(val('mainAction')||'لم يُحدَّد بعد'),
           'الصفحات المطلوبة: '+(val('pagesWanted')||'سنقترح الصفحات المناسبة حسب النشاط'),
           '',
           '🎨 *التصميم والهوية*',
-          'الستايل: '+val('designStyle'),
-          'الألوان: '+(val('colors')||'لم يُحدَّد بعد'),
+          'الستايل: '+(val('designStyle')||'لم يُحدَّد بعد'),
+          'الألوان: '+(window.getColorsForWhatsApp?window.getColorsForWhatsApp():''),
           'لغات الموقع: '+(val('siteLanguage')||'لم يُحدَّد بعد'),
           'موقع مرجعي: '+(val('reference')||'غير متوفر'),
           '',
@@ -686,7 +766,7 @@
           'شكراً، المرجو التواصل مع الزبون لتأكيد التفاصيل.'
         ];
         const message=lines.join('\n');
-        const url='https://wa.me/212724628891?text='+encodeURIComponent(message);
+        const url='https://wa.me/212724628891?text='+encodeURIComponent(message); window.__waUrl=url;
         let redirected=false;
         const go=function(){ if(redirected) return; redirected=true; window.location.href=url; };
         try{
@@ -696,6 +776,101 @@
           } else { go(); }
         }catch(e){ go(); }
       });
+    })();
+  </script>
+
+  <script>
+    /* Short form: essentials on one screen, everything else optional. Template picker + session autosave. */
+    (function(){
+      const $=id=>document.getElementById(id);
+      const form=$('siteRequest'),sel=$('languageSelect'),consent=$('consent'),bottom=form.querySelector('.form-bottom');
+      const blocks=[...form.querySelectorAll('.form-block')];
+      const I={"ar": {"nav": "القوالب", "tplKicker": "قوالب جاهزة", "tplTitle": "اختر قالبًا يناسب مشروعك", "tplSub": "نماذج توضيحية للتصميم. نخصّص الألوان والنصوص والصور حسب هويتك، ويكفي أن تختار قالبًا ثم نكمل معك عبر واتساب.", "pick": "اختر هذا القالب", "picked": "✓ تم الاختيار", "chosen": "القالب المختار:", "change": "إلغاء الاختيار", "more": "تفاصيل إضافية (اختياري)", "moreHint": "لا تحتاج إلى ملئها الآن؛ سنسألك عنها عبر واتساب عند الحاجة.", "name": "اكتب اسمك الكامل ليتمكن فريقنا من مخاطبتك.", "phone": "اكتب رقم هاتف صحيحًا مع رمز الدولة.", "type": "اختر قالبًا أو نوع الموقع للمتابعة.", "opening": "جارٍ فتح واتساب…", "openManual": "لم يُفتح واتساب؟ اضغط هنا لفتحه", "consent": "ضع علامة ✓ في مربع الموافقة، ثم اضغط إرسال.", "n1": "مطعم ومقهى", "d1": "قائمة الطعام والحجز والموقع", "n2": "متجر إلكتروني", "d2": "عرض المنتجات واستقبال الطلبات", "n3": "شركة وخدمات", "d3": "تعريف بالخدمات وطلب عرض سعر", "n4": "صالون وجمال", "d4": "الخدمات والأسعار وحجز المواعيد", "n5": "عقارات", "d5": "عرض العقارات والتواصل مع الزوار", "n6": "سياحة وإقامة", "d6": "الوجهات والعروض والحجز", "n7": "معرض أعمال", "d7": "أعمالك وسيرتك وتواصل سريع", "n8": "جمعية ومبادرة", "d8": "رسالة الجهة وأنشطتها والتطوع"}, "en": {"nav": "Templates", "tplKicker": "Ready-made templates", "tplTitle": "Pick a template that fits your business", "tplSub": "Illustrative design samples. We adapt colours, text and images to your brand. Just choose one and we will continue on WhatsApp.", "pick": "Choose this template", "picked": "✓ Selected", "chosen": "Selected template:", "change": "Clear", "more": "More details (optional)", "moreHint": "No need to fill these in now; we will ask on WhatsApp if needed.", "name": "Enter your full name so we know who to contact.", "phone": "Enter a valid phone number with the country code.", "type": "Choose a template or website type to continue.", "opening": "Opening WhatsApp…", "openManual": "WhatsApp did not open? Tap here", "consent": "Tick the consent box, then press send.", "n1": "Restaurant & café", "d1": "Menu, booking and location", "n2": "Online store", "d2": "Show products and take orders", "n3": "Company & services", "d3": "Services and quote requests", "n4": "Salon & beauty", "d4": "Services, prices and appointments", "n5": "Real estate", "d5": "Listings and visitor enquiries", "n6": "Tourism & stays", "d6": "Destinations, offers and booking", "n7": "Portfolio", "d7": "Your work, bio and quick contact", "n8": "Association", "d8": "Mission, activities and volunteering"}, "fr": {"nav": "Modèles", "tplKicker": "Modèles prêts à l’emploi", "tplTitle": "Choisissez un modèle adapté à votre activité", "tplSub": "Exemples illustratifs. Nous adaptons couleurs, textes et images à votre marque. Choisissez un modèle et nous continuons sur WhatsApp.", "pick": "Choisir ce modèle", "picked": "✓ Choisi", "chosen": "Modèle choisi :", "change": "Retirer", "more": "Plus de détails (facultatif)", "moreHint": "Inutile de les remplir maintenant ; nous vous les demanderons sur WhatsApp si besoin.", "name": "Saisissez votre nom complet.", "phone": "Saisissez un numéro valide avec l’indicatif du pays.", "type": "Choisissez un modèle ou un type de site pour continuer.", "opening": "Ouverture de WhatsApp…", "openManual": "WhatsApp ne s’ouvre pas ? Touchez ici", "consent": "Cochez la case de consentement, puis envoyez.", "n1": "Restaurant & café", "d1": "Menu, réservation et localisation", "n2": "Boutique en ligne", "d2": "Produits et commandes", "n3": "Entreprise & services", "d3": "Services et demande de devis", "n4": "Salon & beauté", "d4": "Services, tarifs et rendez-vous", "n5": "Immobilier", "d5": "Annonces et contact des visiteurs", "n6": "Tourisme & séjours", "d6": "Destinations, offres et réservation", "n7": "Portfolio", "d7": "Vos réalisations et contact rapide", "n8": "Association", "d8": "Mission, activités et bénévolat"}};
+      const TY={1:'مطعم أو مقهى',2:'متجر إلكتروني',3:'موقع شركة أو خدمات',4:'جمال أو صالون حلاقة',5:'عقار أو كراء',6:'السياحة أو الإقامة أو الفنادق',7:'محفظة معرض أعمال شخصي',8:'جمعية أو مشروع اجتماعي'};
+      const t=k=>(I[sel.value]||I.ar)[k];
+      /* 1) move optional fields into a collapsible block */
+      const more=document.createElement('details');more.className='more';
+      more.innerHTML='<summary data-i18n="more"></summary><p class="more-hint" data-i18n="moreHint"></p><div class="grid-2 more-basic"></div><div class="more-desc"></div>';
+      const g=more.querySelector('.more-basic');
+      ['businessName','country','city'].forEach(id=>g.appendChild($(id).closest('.field')));
+      more.querySelector('.more-desc').appendChild($('businessDesc').closest('.field'));
+      [2,3,4,5].forEach(i=>more.appendChild(blocks[i]));
+      bottom.before(more);
+      /* 2) template picker */
+      const hid=document.createElement('input');hid.type='hidden';hid.name='template';hid.id='template';form.appendChild(hid);
+      const chosen=document.createElement('div');chosen.className='chosen';chosen.hidden=true;
+      chosen.innerHTML='<span data-i18n="chosen"></span> <b></b> <button type="button" class="chosen-clear" data-i18n="change"></button>';
+      blocks[1].querySelector('.block-title').after(chosen);
+      function syncChosen(){const k=hid.value;
+        document.querySelectorAll('.tpl').forEach(c=>{const on=c.dataset.k===k;c.classList.toggle('on',on);const b=c.querySelector('.tpl-pick');b.textContent=on?t('picked'):t('pick');b.setAttribute('aria-pressed',on)});
+        chosen.hidden=!k;if(k)chosen.querySelector('b').textContent=t('n'+k)}
+      function apply(){document.querySelectorAll('[data-i18n]').forEach(el=>{const v=t(el.dataset.i18n);if(v!==undefined)el.textContent=v});syncChosen()}
+      window.getTemplateForWhatsApp=function(){const x=TPX[hid.value];return x?x.name+' — النوع: '+x.type+' — الألوان: '+x.cn+' ('+x.a+') مع خلفية '+x.bn+' ('+x.b+')':''};
+      document.querySelectorAll('.tpl-pick').forEach(b=>b.addEventListener('click',()=>{
+        const c=b.closest('.tpl');hid.value=c.dataset.k;
+        const r=[...form.querySelectorAll('input[name="siteType"]')].find(x=>x.value===c.dataset.type);
+        if(r){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}))}
+        clearErr();syncChosen();save();$('request').scrollIntoView({behavior:'smooth',block:'start'})}));
+      chosen.querySelector('.chosen-clear').addEventListener('click',()=>{hid.value='';syncChosen();save()});
+      form.querySelectorAll('input[name="siteType"]').forEach(r=>r.addEventListener('change',()=>{if(hid.value&&TY[hid.value]!==r.value){hid.value='';syncChosen()}}));
+      /* 3) inline validation on send */
+      function clearErr(){form.querySelectorAll('.err').forEach(f=>f.classList.remove('err'));form.querySelectorAll('.field-error').forEach(e=>e.remove())}
+      function showErr(host,msg,el){host.classList.add('err');const e=document.createElement('small');e.className='field-error';e.setAttribute('role','alert');e.textContent=msg;host.appendChild(e);if(el)el.focus();host.scrollIntoView({block:'center',behavior:'smooth'})}
+      consent.addEventListener('change',clearErr);
+      form.addEventListener('submit',()=>{
+        clearErr();const n=$('clientName'),p=$('clientPhone'),pv=p.value.trim();
+        if(!n.value.trim())return showErr(n.closest('.field'),t('name'),n);
+        if(!(/^[+\d\s().-]{8,25}$/.test(pv)&&pv.replace(/\D/g,'').length>=8))return showErr(p.closest('.field'),t('phone'),p);
+        if(!form.querySelector('input[name="siteType"]:checked'))return showErr(blocks[1],t('type'));
+        if(!consent.checked)return showErr(consent.closest('.consent'),t('consent'),consent);
+        /* all valid: show feedback right away and offer a manual link if the redirect is blocked */
+        const btn=form.querySelector('.submit-btn');btn.dataset.label=btn.dataset.label||btn.innerHTML;btn.disabled=true;btn.textContent=t('opening');
+        setTimeout(()=>{if(document.visibilityState==='visible'&&window.__waUrl){let a=$('waFallback');if(!a){a=document.createElement('a');a.id='waFallback';a.className='btn btn-gold';a.target='_blank';a.rel='noopener';a.style.cssText='width:100%;margin-top:12px';bottom.appendChild(a)}a.href=window.__waUrl;a.textContent=t('openManual');btn.disabled=false;btn.innerHTML=btn.dataset.label}},2500);
+      });
+      function resetBtn(){const btn=form.querySelector('.submit-btn');if(btn.disabled&&btn.dataset.label){btn.disabled=false;btn.innerHTML=btn.dataset.label}}
+      document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')resetBtn()});window.addEventListener('pageshow',resetBtn);
+      /* accept Arabic-Indic / Persian digits in the phone field */
+      $('clientPhone').addEventListener('input',e=>{const v=e.target.value.replace(/[٠-٩]/g,d=>d.charCodeAt(0)-1632).replace(/[۰-۹]/g,d=>d.charCodeAt(0)-1776);if(v!==e.target.value)e.target.value=v});
+      /* 4) autosave in this tab only */
+      const KEY='webcraftly-draft',keyOf=el=>el.name||el.id;
+      function save(){try{const d={};form.querySelectorAll('input,select,textarea').forEach(el=>{const k=keyOf(el);if(!k||el.id==='consent')return;if(el.type==='radio'){if(el.checked)d[k]=el.value}else if(el.type==='checkbox'){d[k]=d[k]||[];if(el.checked)d[k].push(el.value)}else d[k]=el.value});sessionStorage.setItem(KEY,JSON.stringify(d))}catch(e){}}
+      function restore(){try{const d=JSON.parse(sessionStorage.getItem(KEY)||'null');if(!d)return;
+        form.querySelectorAll('input,select,textarea').forEach(el=>{const k=keyOf(el);if(!k||!(k in d)||el.id==='consent')return;if(el.type==='radio')el.checked=el.value===d[k];else if(el.type==='checkbox')el.checked=d[k].includes(el.value);else el.value=d[k]});
+        form.querySelectorAll('input[name="siteType"]').forEach(r=>{if(r.checked)r.dispatchEvent(new Event('change',{bubbles:true}))});
+        ['opening','beauty'].forEach(q=>['Days','From','To'].forEach(s=>{const el=$(q+s);if(el)el.dispatchEvent(new Event('input'))}));
+      }catch(e){}}
+      form.addEventListener('input',save);form.addEventListener('change',save);
+      sel.addEventListener('change',apply);
+      /* template data used to build the short prompt sent to WhatsApp */
+      const TPX={
+        1:{name:'مطعم ومقهى',type:'مطعم أو مقهى',a:'#b45309',cn:'برتقالي محروق دافئ',b:'#fff7ed',bn:'كريمي فاتح',layout:'واجهة رئيسية كبيرة مع قائمة الطعام والحجز والموقع'},
+        2:{name:'متجر إلكتروني',type:'متجر إلكتروني',a:'#7c3aed',cn:'بنفسجي',b:'#f5f3ff',bn:'بنفسجي فاتح جدًا',layout:'شبكة منتجات من 4 أعمدة مع سلة وطلب سريع'},
+        3:{name:'شركة وخدمات',type:'موقع شركة أو خدمات',a:'#1d4ed8',cn:'أزرق',b:'#eff6ff',bn:'أزرق فاتح جدًا',layout:'واجهة تعريفية مع الخدمات وطلب عرض سعر'},
+        4:{name:'صالون وجمال',type:'جمال أو صالون حلاقة',a:'#be185d',cn:'وردي غامق',b:'#fdf2f8',bn:'وردي فاتح جدًا',layout:'الخدمات والأسعار مع حجز المواعيد'},
+        5:{name:'عقارات',type:'عقار أو كراء',a:'#0f3b2c',cn:'أخضر زمردي',b:'#eef4ee',bn:'أخضر فاتح جدًا',layout:'بطاقات عقارات كبيرة مع بحث وتواصل'},
+        6:{name:'سياحة وإقامة',type:'السياحة أو الإقامة أو الفنادق',a:'#0e7490',cn:'أزرق مخضر',b:'#ecfeff',bn:'سماوي فاتح جدًا',layout:'وجهات وعروض مع حجز'},
+        7:{name:'معرض أعمال',type:'محفظة معرض أعمال شخصي',a:'#1f2937',cn:'رمادي داكن',b:'#f3f4f6',bn:'رمادي فاتح',layout:'معرض أعمال بصور كبيرة مع نبذة وتواصل'},
+        8:{name:'جمعية ومبادرة',type:'جمعية أو مشروع اجتماعي',a:'#15803d',cn:'أخضر',b:'#f0fdf4',bn:'أخضر فاتح جدًا',layout:'رسالة الجهة وأنشطتها مع التطوع والتبرع'}
+      };
+      const fv=n=>{const e=form.elements[n];return e&&e.value?e.value.trim():''};
+      window.getColorsForWhatsApp=function(){
+        const pref=fv('colors'),x=TPX[hid.value];
+        if(pref&&pref!=='لم أحدد بعد')return pref;
+        return x?x.cn+' ('+x.a+') مع خلفية '+x.bn+' ('+x.b+')':'لم تُحدَّد؛ يرجى اقتراح ألوان مناسبة';
+      };
+      window.getPromptForWhatsApp=function(){
+        const x=TPX[hid.value],chk=form.querySelector('input[name="siteType"]:checked'),type=x?x.type:(chk?chk.value:''),biz=fv('businessName');
+        const feats=[...form.querySelectorAll('input[name="features"]:checked')].map(e=>e.value),pages=fv('pagesWanted');
+        const parts=['أنشئ موقعًا إلكترونيًا'+(type?' من نوع «'+type+'»':'')+(biz?' باسم «'+biz+'»':'')+'.'];
+        if(x)parts.push('القالب: «'+x.name+'» — '+x.layout+'.');
+        parts.push('الألوان: '+window.getColorsForWhatsApp()+'.');
+        if(fv('designStyle'))parts.push('الأسلوب: '+fv('designStyle')+'.');
+        parts.push('لغات الموقع: '+(fv('siteLanguage')||'العربية الفصحى')+'.');
+        parts.push('الصفحات والخصائص: '+((feats.concat(pages?[pages]:[])).join('، ')||'اقترح الأساسية المناسبة')+'.');
+        parts.push('تصميم متجاوب مع الهاتف وزر واتساب ثابت.');
+        return parts.join(' ');
+      };
+      restore();apply();
     })();
   </script>
 </body>
